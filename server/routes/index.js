@@ -80,14 +80,16 @@ router.get("/logout", (req, res, next) => {
 //POST process the registration page
 router.post("/register", (req, res, next) => {
   let newUser = new User({
+    userName: req.body.username,
     username: req.body.username,
     email: req.body.email,
     displayName: req.body.displayName
   });
+  console.log(newUser);
   //Register the user
   User.register(newUser, req.body.password, err => {
     if (err) {
-      console.log("Error: Inserting New User");
+      console.log(err);
       req.flash("registerMessage", "Registration Error: Inserting New User!");
       if (err.name == "UserExistsError") {
         req.flash(
@@ -98,8 +100,7 @@ router.post("/register", (req, res, next) => {
       }
       return res.render("auth/register", {
         title: "Register",
-        messages: req.flash("registerMessage"),
-        displayName: req.user ? req.user.displayName : ""
+        messages: req.flash("registerMessage")
       });
     } else {
       // if no error exists, then registration is successful
