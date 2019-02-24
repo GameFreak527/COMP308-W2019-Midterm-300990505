@@ -1,3 +1,10 @@
+/*
+Database Configuration File
+Name - Shiv Rana
+Student Id - 300990505
+Web App - Favorite Book
+*/
+
 module.exports = {
   //local MongoDB deployment ->
   //"URI": "mongodb://localhost/books308"
