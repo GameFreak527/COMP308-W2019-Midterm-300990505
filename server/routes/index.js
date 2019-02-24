@@ -21,4 +21,26 @@ router.get("/", (req, res, next) => {
   });
 });
 
+//GET the loginPage
+router.get("/login", (req, res, next) => {
+  res.render("auth/login", {
+    title: "Login",
+    messages: "Nothing"
+  });
+});
+
+//POST process the login page
+router.post("/login", (req, res, next) => {});
+
+//GET displays the registration page
+router.get("/register", (req, res, next) => {
+  res.render("auth/register", {
+    title: "Registration",
+    messages: "Nothing"
+  });
+});
+
+//POST process the registration page
+router.post("/register", (req, res, next) => {});
+
 module.exports = router;
